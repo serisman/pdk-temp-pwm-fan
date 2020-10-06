@@ -12,7 +12,7 @@ The duty cycle is adjusted up or down based on a high and low temperature set po
 
 The temperature is measured using a 10K NTC thermistor between VCC and a 1K resistor to GND forming a voltage divider.
 - The output of this voltage divider is fed into the Padauk microcontroller's Comparator + input.
-- The Comparator's - input is connected to an internally generated voltage source that can be set to 32 different voltage levels between GND and VCC.
+- The Comparator's - input is connected to an internally generated voltage source that can be set to 16 different voltage levels between GND and VCC.
 - So, by changing the internal voltage source, the Comparator can be checked to see if the NTC's output is greater or less than a set point.
 
 This temperature measurement isn't particularly precise, but should suffice for crude temperature control requirements,

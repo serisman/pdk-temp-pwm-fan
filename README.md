@@ -3,7 +3,7 @@ A temperature controlled PWM fan controller using an inexpensive (3 cent) 8-bit 
 
 ### Links
 - [Firmware](firmware/)
-- [PCB](pcb-U06/)
+- [PCB](pcb-u06/)
 
 This fan controller drives a common 4-pin PC fan, by sending a 25 kHz PWM signal with a varying duty cycle.
 The duty cycle is adjusted up or down based on a high and low temperature set point.

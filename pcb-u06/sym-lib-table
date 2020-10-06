@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name 78L05)(type Legacy)(uri ${KIPRJMOD}/libraries/78L05.lib)(options "")(descr ""))
+  (lib (name Padauk)(type Legacy)(uri ${KIPRJMOD}/libraries/Padauk.lib)(options "")(descr ""))
+)

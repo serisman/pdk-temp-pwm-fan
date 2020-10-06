@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 78L05_SOT23
+D Positive 100mA 30V Linear Regulator, Fixed Output 24V, SOT-23
+K Voltage Regulator 100mA Positive
+F http://pdf.datasheetcatalog.com/datasheet/vishay/mc78l00.pdf
+$ENDCMP
+#
+#End Doc Library

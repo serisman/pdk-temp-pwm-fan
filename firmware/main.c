@@ -30,7 +30,7 @@
 #define TRIGGER_LOW       NTC_1K_TRIGGER_45C
 #define TRIGGER_HIGH      NTC_1K_TRIGGER_50C
 
-void everyTick() {
+void everyTick(void) {
 	static uint8_t pwm = 0;
 
 	// Decrement Fan PWM duty if NTC is < low trigger point
@@ -67,7 +67,7 @@ void interrupt(void) __interrupt(0) {
 }
 
 // Main program
-void main() {
+void main(void) {
 
   // Disable wake-up on un-used pins to save power
   PADIER = 0x00;
@@ -105,9 +105,14 @@ void main() {
   }
 }
 
-// Startup code - Setup/calibrate system clock
-unsigned char _sdcc_external_startup(void) {
+#if SDCC >= 40300
+    #define SDCC_EXTERNAL_STARTUP __sdcc_external_startup
+#else
+    #define SDCC_EXTERNAL_STARTUP _sdcc_external_startup
+#endif
 
+// Startup code - Setup/calibrate system clock
+unsigned char SDCC_EXTERNAL_STARTUP(void) {
   // Set FUSE:
   // - 1.8v LVR (if available)
   // - Normal IO Drive (if available)

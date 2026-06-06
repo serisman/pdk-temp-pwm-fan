@@ -40,11 +40,11 @@ all: size
 print-%: ; @echo $* = $($*)
 
 $(BUILD_DIR)/%.rel: %.c
-	@mkdir -p $(dir $@)
+	-mkdir $(dir $@) 2>nul
 	$(COMPILE) -o $@ $<
 
 $(OUTPUT).ihx: $(OBJECTS)
-	@mkdir -p $(dir $(OUTPUT))
+	-mkdir $(dir $(OUTPUT)) 2>nul
 	$(LINK) --out-fmt-ihx -o $(OUTPUT).ihx $(OBJECTS)
 
 $(OUTPUT).bin: $(OUTPUT).ihx
@@ -59,7 +59,9 @@ size: build
 	@stat -L --printf "Size of $(OUTPUT_NAME).bin: %s bytes\n" $(OUTPUT).bin
 
 program: size
-	$(EASYPDKPROG) -n $(DEVICE) write $(OUTPUT).ihx
+	$(EASYPDKPROG) -p COM8 -n $(DEVICE) write $(OUTPUT).ihx
+probe:
+	$(EASYPDKPROG) -v probe -p COM8
 
 clean:
 	rm -r -f $(BUILD_DIR) $(OUTPUT_DIR)
